@@ -1,4 +1,4 @@
-# 🌦️ Weather App (SPA)
+# 🌦️ Sun Syncs (SPA)
 
 A sleek and modern Single Page Application (SPA) weather app built using **React + Vite**, **Axios**, **Context API**, **TailwindCSS**, and **Framer Motion**.  
 Get real-time weather information for any city around the globe in an instant!
