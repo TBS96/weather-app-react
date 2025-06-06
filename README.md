@@ -10,10 +10,10 @@ Get real-time weather information for any city around the globe in an instant!
 - 🔥 Instant weather search by city name
 - 🌎 Global weather data (temperature, humidity, weather condition)
 - 🌓 Light/Dark mode support
--  ⚡ Smooth animations with Framer Motion
+<!-- -  ⚡ Smooth animations with Framer Motion -->
 - 🛠️ Powered by Context API for state management
 - 📱 Fully responsive and mobile-friendly
-- 🎨 Beautiful UI with `TailwindCSS` and `Framer Motion`
+- 🎨 Beautiful UI with `TailwindCSS` and `daisyUI`
 
 ---
 
@@ -22,10 +22,11 @@ Get real-time weather information for any city around the globe in an instant!
 | Tech         | Description                                   |
 |--------------|-----------------------------------------------|
 | React + Vite | Frontend framework & build tool               |
-| Axios        | For making API calls to weather services      |
+| TanStack Query        | For making API calls to weather services      |
 | Context API  | Global state management                      |
 | TailwindCSS  | Utility-first CSS framework                   |
-| Framer Motion      | Animations and Transitions        |
+| daisyUI  | Tailwind Components Library                   |
+<!-- | Framer Motion      | Animations and Transitions        | -->
 
 ---
 
@@ -50,7 +51,7 @@ npm install
 - Create a `.env` file in the root of the project and add your API key:
 
 ```env
-VITE_WEATHER_API_KEY=your_api_key_here
+VITE_WEATHER_API_KEY=<YOUR_API_KEY>
 ```
 
 ### 4. Start the Development Server
@@ -101,7 +102,8 @@ src/
 
 - [OpenWeatherMap API](https://openweathermap.org/)
 - [TailwindCSS](https://tailwindcss.com/)
-- [Framer Motion](https://motion.dev/)
+- [daisyUI](https://daisyui.com/)
+- [TanStack Query](https://tanstack.com/query/latest)
 
 ---
 
