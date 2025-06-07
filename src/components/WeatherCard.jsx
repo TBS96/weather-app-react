@@ -2,6 +2,8 @@ import { useWeatherContext } from '../context/WeatherContext'
 import { useQuery } from '@tanstack/react-query';
 import { fetchWeather } from '../api/weatherApi';
 import { useEffect, useRef, useState } from 'react';
+import WeatherIcons from './WeatherIcons';
+import { WiCloudyWindy, WiHumidity, WiStrongWind } from 'react-icons/wi';
 
 const WeatherCard = () => {
 
@@ -19,7 +21,7 @@ const WeatherCard = () => {
         retry: false,
     });
 
-    // console.log(data);
+    console.log(data);
 
     useEffect(() => {
         setShowLoading(true);
@@ -68,20 +70,24 @@ const WeatherCard = () => {
     ) : (
         <div className='card w-full max-w-xs sm:max-w-md md:max-w-lg bg-base-100 shadow-xl mx-auto mt-4 sm:mt-6 md:mt-10 min-h-[50vh]'>
             <div className='card-body items-center text-center p-4 sm:p-6'>
+                <WeatherIcons iconCode={data.weather[0].icon} size='text-6xl' />
+                <p className='capitalize text-base sm:text-lg mb-2'>{data.weather[0].description}</p>
                 <h2 className='card-title text-xl sm:text-2xl'>{data.name}, {data.sys.country}</h2>
                 <p className='text-4xl sm:text-5xl my-2'>{Math.round(data.main.temp)}° C</p>
                 <p className='text-lg sm:text-xl mb-2'>Feels like: {Math.round(data.main.feels_like)}° C</p>
-                <p className='capitalize text-base sm:text-lg mb-4'>{data.weather[0].description}</p>
-                <div className='grid grid-cols-2 gap-4 w-full mt-4 text-sm sm:text-base'>
-                    <div className='flex flex-col items-center'>
-                        <span className='font-medium'>Humidity</span>
+
+                <div className='flex items-center justify-between w-full mt-4'>
+                    <div className='flex items-center gap-2'>
+                        <WiHumidity className='text-xl text-blue-500' />
                         <span>{data.main.humidity}%</span>
                     </div>
-                    <div className='flex flex-col items-center'>
-                        <span className='font-medium'>Wind</span>
-                        <span>{data.wind.speed}m/s</span>
+
+                    <div className='flex items-center gap-2'>
+                        <WiStrongWind className='text-xl text-gray-500' />
+                        <span>{data.wind.speed} m/s</span>
                     </div>
                 </div>
+
             </div>
         </div>
     )
