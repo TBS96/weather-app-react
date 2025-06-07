@@ -20,24 +20,24 @@ const Home = () => {
     };
 
     return (
-        <div className='flex flex-col items-center min-h-screen p-4'>
-            <h1 className='text-4xl font-bold mb-6'>Weather App</h1>
+        <div className='flex flex-col items-center min-h-screen p-4 md:p-8'>
+            <h1 className='text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-center'>Weather App</h1>
 
-            <div className='flex gap-2 mb-6'>
+            <div className='flex flex-col sm:flex-row gap-4 sm:gap-2 mb-6'>
                 <input
                     type='text'
                     placeholder='Enter city name...'
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                    className='input w-64'
+                    className='input input-info w-64'
                 />
-                <button onClick={handleSearch} className='btn btn-primary'>
+                <button onClick={handleSearch} className='btn btn-primary sm:w-auto w-full'>
                     Search
                 </button>
             </div>
 
-            {showWeather ? (<WeatherCard />) : 'Search for a city...'}
+            {showWeather ? (<WeatherCard />) : (<p className='text-center text-lg text-info'>Search for a city to see weather information</p>)}
         </div>
     )
 }
