@@ -9,10 +9,13 @@ const Home = () => {
     const [showWeather, setShowWeather] = useState(false);
 
     const handleSearch = () => {
-        if (input.trim() != '') {
+        if (input.trim() !== '') {
             setCity(input.trim());
             setInput('');
             setShowWeather(true);
+        }
+        else {
+            alert('Please enter a city name...');
         }
     };
 
