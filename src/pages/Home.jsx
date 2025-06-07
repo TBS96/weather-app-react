@@ -26,6 +26,7 @@ const Home = () => {
                     placeholder='Enter city name...'
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                     className='input w-64'
                 />
                 <button onClick={handleSearch} className='btn btn-primary'>
