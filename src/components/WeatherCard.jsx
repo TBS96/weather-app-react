@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchWeather } from '../api/weatherApi';
 import { useEffect, useRef, useState } from 'react';
 import WeatherIcons from './WeatherIcons';
-import { WiCloudyWindy, WiHumidity, WiStrongWind } from 'react-icons/wi';
+import { WiHumidity, WiStrongWind } from 'react-icons/wi';
 
 const WeatherCard = () => {
 
