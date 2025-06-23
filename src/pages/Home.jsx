@@ -20,8 +20,8 @@ const Home = () => {
     };
 
     return (
-        <div className='flex flex-col items-center min-h-screen p-4 md:p-8'>
-            <a href='/' className='text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text'>
+        <section className='flex flex-col items-center min-h-screen p-4 md:p-8'>
+            <a href='/' className='text-3xl md:text-4xl font-bold mb-8 md:mb-10 text-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text'>
                 Sun Syncs
             </a>
 
@@ -39,7 +39,7 @@ const Home = () => {
                             <path d='m21 21-4.3-4.3'></path>
                         </g>
                     </svg>
-                    <input 
+                    <input
                         type='search'
                         placeholder='Search for a city or area pincode'
                         value={input}
@@ -52,8 +52,12 @@ const Home = () => {
                 </button>
             </div>
 
-            {showWeather ? (<WeatherCard />) : (<p className='text-center text-lg text-info mt-80'>Search for a city to see weather information</p>)}
-        </div>
+            {showWeather ?
+                (<WeatherCard />)
+                :
+                (<p className='text-center text-lg text-info mt-80'>Search for a city to see weather information</p>)
+            }
+        </section>
     )
 }
 
