@@ -1,4 +1,4 @@
-import { WiCloudy, WiDayCloudy, WiDayRain, WiDaySunny, WiFog, WiNightClear, WiNightCloudy, WiNightRain, WiRain, WiSnow, WiThunderstorm } from "react-icons/wi";
+import { WiCloudy, WiDayCloudy, WiDayRain, WiDaySunny, WiFog, WiHumidity, WiNightClear, WiNightCloudy, WiNightRain, WiRain, WiSnow, WiStrongWind, WiSunrise, WiSunset, WiThermometer, WiThunderstorm } from "react-icons/wi";
 
 const WeatherIcons = ({ iconCode, size = 'text-4xl', animation = 'animate-pulse' }) => {
 
@@ -20,7 +20,12 @@ const WeatherIcons = ({ iconCode, size = 'text-4xl', animation = 'animate-pulse'
         '13d': <WiSnow className={`${size} ${animation} text-blue-200`} />,
         '13n': <WiSnow className={`${size} ${animation} text-blue-200`} />,
         '50d': <WiFog className={`${size} ${animation} text-gray-400`} />,
-        '50n': <WiFog className={`${size} ${animation} text-gray-500`} />
+        '50n': <WiFog className={`${size} ${animation} text-gray-500`} />,
+        'thermometer' : <WiThermometer className={`text-2xl text-orange-400`} />,
+        'humidity' : <WiHumidity className={`text-xl text-blue-500`} />,
+        'wind' : <WiStrongWind className={`text-xl text-gray-500`} />,
+        'sunrise' : <WiSunrise className={`text-yellow-500 text-xl`} />,
+        'sunset' : <WiSunset className={`text-orange-800 text-xl`} />
     };
 
     return iconMap[iconCode] || <WiDaySunny className={`${size} text-yellow-500`} />
