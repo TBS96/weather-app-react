@@ -21,9 +21,6 @@ const Home = () => {
 
     return (
         <section className='flex flex-col items-center min-h-screen p-4 md:p-8'>
-            <a href='/' className='text-3xl md:text-4xl font-bold mb-8 md:mb-10 text-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text'>
-                Sun Syncs
-            </a>
 
             <div className='flex flex-col sm:flex-row gap-4 sm:gap-2 mb-6'>
                 <label className='input input-info w-72 tooltip' data-tip='Search for a city or area pincode'>
@@ -55,7 +52,7 @@ const Home = () => {
             {showWeather ?
                 (<WeatherCard />)
                 :
-                (<p className='text-center text-lg text-info mt-40'>Search for a city to see weather information</p>)
+                (<p className='text-center text-lg text-info mt-20'>Search for a city to see weather information</p>)
             }
         </section>
     )
