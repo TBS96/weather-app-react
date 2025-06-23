@@ -55,7 +55,7 @@ const Home = () => {
             {showWeather ?
                 (<WeatherCard />)
                 :
-                (<p className='text-center text-lg text-info mt-80'>Search for a city to see weather information</p>)
+                (<p className='text-center text-lg text-info mt-40'>Search for a city to see weather information</p>)
             }
         </section>
     )
