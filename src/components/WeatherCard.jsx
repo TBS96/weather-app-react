@@ -69,10 +69,20 @@ const WeatherCard = () => {
     ) : (
         <div className='card w-full max-w-xs sm:max-w-md md:max-w-lg bg-base-100 shadow-xl mx-auto mt-4 sm:mt-6 md:mt-10 min-h-[50vh]'>
             <div className='card-body items-center text-center p-4 sm:p-6'>
+
                 <WeatherIcons iconCode={data.weather[0].icon} size='text-6xl' />
-                <p className='capitalize text-base sm:text-lg'>{data.weather[0].description}</p>
-                <h2 className='card-title text-xl sm:text-2xl'>{data.name}, {data.sys.country}</h2>
-                <p className='text-4xl sm:text-5xl my-2'>{Math.round(data.main.temp)}° C</p>
+
+                <p className='capitalize text-base sm:text-lg'>
+                    {data.weather[0].description}
+                </p>
+
+                <h2 className='card-title text-xl sm:text-2xl tooltip' data-tip={`${data.name}, ${data.sys.country}`}>
+                        {data.name}, {data.sys.country}
+                </h2>
+
+                <p className='text-4xl sm:text-5xl my-2 tooltip tooltip-left tooltip-info' data-tip={`Curr. Temp.: ${Math.round(data.main.temp)}° C`}>
+                    {Math.round(data.main.temp)}° C
+                </p>
 
                 <div className='flex items-center gap-2 text-lg sm:text-xl mb-2 tooltip tooltip-bottom' data-tip='Feels Like'>
                     <WeatherIcons iconCode={`thermometer`} />
