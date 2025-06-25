@@ -25,6 +25,7 @@ Get real-time weather information for any city around the globe in an instant!
 | React + Vite | Frontend framework & build tool               |
 | TanStack Query        | For making API calls to weather services      |
 | Context API  | Global state management                      |
+| Geolocation API  | Get coordinates                      |
 | TailwindCSS  | Utility-first CSS framework                   |
 | daisyUI  | Tailwind Components Library                   |
 <!-- | Framer Motion      | Animations and Transitions        | -->
