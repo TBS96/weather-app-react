@@ -8,7 +8,8 @@ Get real-time weather information for any city around the globe in an instant!
 ## ✨ Features
 
 - 🔥 Instant weather search by city name
-- 🌎 Global weather data (temperature, humidity, weather condition)
+- 🌎 Uses the browser's Geolocation API to get coordinates on page load.
+- ⚡ Global weather data (temperature, humidity, weather condition)
 - 🌓 Light/Dark mode support
 <!-- -  ⚡ Smooth animations with Framer Motion -->
 - 🛠️ Powered by Context API for state management
