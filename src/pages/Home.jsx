@@ -1,18 +1,48 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useWeatherContext } from '../context/WeatherContext'
 import WeatherCard from '../components/WeatherCard';
 
 const Home = () => {
 
-    const { setCity } = useWeatherContext();
+    const { setCity, setCoords } = useWeatherContext();
     const [input, setInput] = useState('');
     const [showWeather, setShowWeather] = useState(false);
+    const [infoMessage, setInfoMessage] = useState('');
+
+    useEffect(() => {
+        setCity('');
+        setCoords(null);
+        setShowWeather(false);
+
+        if (navigator.geolocation) {
+            setInfoMessage('Attempting to retrieve your current location...');
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    setCoords({
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude,
+                    });
+                    setShowWeather(true);
+                    setInfoMessage('');
+                },
+                (error) => {
+                    console.error(`Error getting location: ${error.message}`);
+                    setInfoMessage(`${error.message} or location unavailable. Please search for a city.`);
+                }
+            );
+        }
+        else {
+            setInfoMessage('Geolocation is not supported by this browser. Please search for a city.');
+        }
+    }, [setCity, setCoords]);
 
     const handleSearch = () => {
         if (input.trim() !== '') {
             setCity(input.trim());
+            setCoords(null);
             setInput('');
             setShowWeather(true);
+            setInfoMessage('');
         }
         else {
             alert('Please enter a city name...');
@@ -49,10 +79,14 @@ const Home = () => {
                 </button>
             </div>
 
+            {infoMessage && !showWeather && (
+                <p className='text-center text-lg text-error mt-4'>{infoMessage}</p>
+            )}
+
             {showWeather ?
                 (<WeatherCard />)
                 :
-                (<p className='text-center text-lg text-info mt-20'>Search for a city to see weather information</p>)
+                (!infoMessage && <p className='text-center text-lg text-info mt-20'>Search for a city to see weather information</p>)
             }
         </section>
     )

@@ -1,12 +1,12 @@
 import { useWeatherContext } from '../context/WeatherContext'
 import { useQuery } from '@tanstack/react-query';
-import { fetchWeather } from '../api/weatherApi';
+import { fetchWeatherByCity, fetchWeatherByCoords } from '../api/weatherApi';
 import { useEffect, useRef, useState } from 'react';
 import WeatherIcons from './WeatherIcons';
 
 const WeatherCard = () => {
 
-    const { city } = useWeatherContext();
+    const { city, coords } = useWeatherContext();
 
     const [showLoading, setShowLoading] = useState(true);
 
@@ -14,13 +14,24 @@ const WeatherCard = () => {
 
     const [haveData, setHaveData] = useState(false);
 
+    const queryKey = coords ? 
+        ['weather', coords.latitude, coords.longitude]
+        :
+        ['weather', city];
+    
+    const queryFn = coords ?
+        () => fetchWeatherByCoords(coords.latitude, coords.longitude)
+        :
+        () => fetchWeatherByCity(city);
+
     const { data, error, isLoading } = useQuery({
-        queryKey: ['weather', city],
-        queryFn: () => fetchWeather(city),
+        queryKey: queryKey,
+        queryFn: queryFn,
+        enabled: !!(coords || city),
         retry: false,
     });
 
-    console.log(data);
+    // console.log(data);
 
     useEffect(() => {
         setShowLoading(true);
@@ -39,7 +50,7 @@ const WeatherCard = () => {
                 clearTimeout(loadingTimer.current);
             }
         }
-    }, [city]);
+    }, [city, coords]);
 
     useEffect(() => {
         if (data) setHaveData(true);
